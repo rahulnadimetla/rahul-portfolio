@@ -107,74 +107,45 @@ export default function VideoIntro({ videoSrc="/hero-video.mp4", onScrollNext })
         <video ref={videoRef} className={styles.fgVideo} src={videoSrc} autoPlay loop playsInline muted aria-label="Rahul Nadimetla portfolio video"/>
         <div className={styles.vignette} aria-hidden="true"/>
       </div>
-
       <div className={`${styles.soundHint} ${hintVisible?styles.hintIn:styles.hintOut}`} aria-live="polite">
         <span className={styles.pulse} aria-hidden="true"/> Tap for sound
       </div>
-
       <div className={styles.content}>
-
-        {/* Tagline */}
         <p ref={tagRef} className={styles.tagline}>
-          B.Tech CSE (AI &amp; ML) &nbsp;·&nbsp; CGPA 8.55 &nbsp;·&nbsp; Hyderabad, India
+          B.Tech CSE (AI &amp; ML) &nbsp;·&nbsp; CGPA 8.59 &nbsp;·&nbsp; Hyderabad, India
         </p>
-
-        {/* NAME — this is what you see large on screen */}
         <h1 ref={nameRef} className={styles.name} aria-label="Rahul Nadimetla">
           <span className={styles.nameFirst}>Rahul</span>
           <span className={styles.nameLast}>Nadimetla</span>
         </h1>
-
-        {/* Role subtitle */}
         <p ref={subRef} className={styles.subtitle}>
           Software Engineer &nbsp;·&nbsp; Data Analyst &nbsp;·&nbsp; AI/ML &amp; GenAI Builder
           <br/>
           <span className={styles.accent}>
-            🥉 3rd · GenAI Forge National Hackathon (NASSCOM FutureSkills)
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            🏆 Smart India Hackathon 2025 Finalist
+            🥉 3rd · GenAI Forge National Hackathon &nbsp;|&nbsp; 🏆 Smart India Hackathon 2025
           </span>
         </p>
-
-        {/* Skills pills */}
         <div ref={skillsRef} className={styles.skillsRow}>
-          {skills.map(s => (
-            <span key={s} className={styles.skillPill}>{s}</span>
-          ))}
+          {skills.map(s=>(<span key={s} className={styles.skillPill}>{s}</span>))}
         </div>
-
-        {/* CTA buttons */}
         <div ref={ctaRef} className={styles.ctaRow}>
-          <a href="mailto:rahulnadimetla21@gmail.com" className={styles.ctaPrimary}>
-            Hire Me
+          <a href="mailto:rahulnadimetla21@gmail.com" className={styles.ctaPrimary}>Hire Me</a>
+          <a href="/Rahul_Nadimetla_Resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.ctaResume}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{marginRight:"6px"}}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+            Resume
           </a>
-          <a href="https://linkedin.com/in/rahul-nadimetla" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondary}>
-            LinkedIn
-          </a>
-          <a href="https://github.com/rahulnadimetla" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondary}>
-            GitHub
-          </a>
-          <a href="tel:+918074406629" className={styles.ctaSecondary}>
-            +91 80744 06629
-          </a>
+          <a href="https://linkedin.com/in/rahul-nadimetla" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondary}>LinkedIn</a>
+          <a href="https://github.com/rahulnadimetla" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondary}>GitHub</a>
         </div>
-
       </div>
-
-      {/* Controls */}
       <div className={styles.controls} role="group" aria-label="Video controls">
         <button className={styles.glassBtn} onClick={togglePlay} aria-label={paused?"Play video":"Pause video"}>
-          {paused
-            ? <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            : <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>}
+          {paused?<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>:<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>}
         </button>
         <button className={styles.glassBtn} onClick={toggleMute} aria-label={muted?"Unmute":"Mute"}>
-          {muted
-            ? <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-            : <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>}
+          {muted?<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>:<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>}
         </button>
       </div>
-
       <button ref={scrollRef} className={styles.scrollIndicator} onClick={handleScroll} aria-label="Scroll to next section">
         <span className={styles.scrollLine} aria-hidden="true"/>
         <span className={styles.scrollLabel}>Scroll</span>
