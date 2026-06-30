@@ -90,7 +90,7 @@ export default function VideoIntro({ videoSrc="/hero-video.mp4", onScrollNext })
     return ()=>ctx.revert();
   },[]);
 
-  const toggleMute=useCallback(()=>{ const v=videoRef.current,b=bgRef.current; if(!v) return; v.muted=!v.muted; if(b) b.muted=v.muted; setMuted(v.muted); setHintVisible(false); },[]);
+  const toggleMute=useCallback(()=>{ const v=videoRef.current; if(!v) return; v.muted=!v.muted; setMuted(v.muted); setHintVisible(false); },[]);
   const togglePlay=useCallback(()=>{ const v=videoRef.current; if(!v) return; paused?v.play():v.pause(); setPaused(p=>!p); if(bgRef.current) paused?bgRef.current.play():bgRef.current.pause(); },[paused]);
   const handleScroll=useCallback(()=>{ if(onScrollNext){onScrollNext();return;} const el=heroRef.current; if(el) window.scrollTo({top:el.offsetHeight,behavior:"smooth"}); },[onScrollNext]);
 
