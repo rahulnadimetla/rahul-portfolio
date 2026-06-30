@@ -67,7 +67,7 @@ function CinematicLayer() {
 }
 
 export default function VideoIntro({ videoSrc="/hero-video.mp4", onScrollNext }) {
-  const videoRef=useRef(null), bgRef=useRef(null), heroRef=useRef(null);
+  const videoRef=useRef(null), heroRef=useRef(null);
   const overlayRef=useRef(null), tagRef=useRef(null), nameRef=useRef(null);
   const subRef=useRef(null), skillsRef=useRef(null), ctaRef=useRef(null), scrollRef=useRef(null);
   const [muted,setMuted]=useState(true);
@@ -91,14 +91,13 @@ export default function VideoIntro({ videoSrc="/hero-video.mp4", onScrollNext })
   },[]);
 
   const toggleMute=useCallback(()=>{ const v=videoRef.current; if(!v) return; v.muted=!v.muted; setMuted(v.muted); setHintVisible(false); },[]);
-  const togglePlay=useCallback(()=>{ const v=videoRef.current; if(!v) return; paused?v.play():v.pause(); setPaused(p=>!p); if(bgRef.current) paused?bgRef.current.play():bgRef.current.pause(); },[paused]);
+  const togglePlay=useCallback(()=>{ const v=videoRef.current; if(!v) return; paused?v.play():v.pause(); setPaused(p=>!p); },[paused]);
   const handleScroll=useCallback(()=>{ if(onScrollNext){onScrollNext();return;} const el=heroRef.current; if(el) window.scrollTo({top:el.offsetHeight,behavior:"smooth"}); },[onScrollNext]);
 
   const skills = ["Python","SQL","Pandas","NumPy","Scikit-learn","PyTorch","Power BI","Excel","Flask","Machine Learning","LLMs","Generative AI","Random Forest","Data Visualization","GitHub"];
 
   return (
     <section ref={heroRef} className={styles.hero} aria-label="Portfolio introduction">
-      <video ref={bgRef} className={styles.bgVideo} src={videoSrc} autoPlay loop playsInline muted aria-hidden="true"/>
       <div className={styles.gradTop} aria-hidden="true"/>
       <div className={styles.gradBottom} aria-hidden="true"/>
       <div className={styles.gradLeft} aria-hidden="true"/>
