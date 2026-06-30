@@ -179,7 +179,7 @@ export default function Home() {
             </a>
           </div>
           <div style={{ display:"flex", gap:"20px", justifyContent:"center", marginTop:"24px" }}>
-            <a href="https://linkedin.com/in/rahul-nadimetla" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>LinkedIn</a>
+            <a href="https://www.linkedin.com/in/rahul-nadimetla-9449bb32b" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>LinkedIn</a>
             <a href="https://github.com/rahulnadimetla" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>GitHub</a>
             <a href="tel:+918074406629" style={socialLinkStyle}>+91 80744 06629</a>
           </div>
